@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170703070709) do
+ActiveRecord::Schema.define(version: 20170705091245) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dislikes", force: :cascade do |t|
+    t.string "user_id"
+    t.string "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "restaurant_categories", force: :cascade do |t|
+    t.string "restaurant_id"
+    t.string "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
@@ -20,7 +40,7 @@ ActiveRecord::Schema.define(version: 20170703070709) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "name"
     t.text "preference"
     t.datetime "created_at", null: false
