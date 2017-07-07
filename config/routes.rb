@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  resources :users
-  resources :restaurants
-  resources :categories
+  resources :users, expect: [:show]
+  resources :restaurants, expect: [:show]
+  resources :categories, expect: [:show]
 end

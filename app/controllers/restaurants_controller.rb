@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RestaurantsController < ApplicationController
   before_action :find_restautant, only: [:edit, :update, :destroy]
   def index
@@ -18,26 +20,23 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def edit; end
 
-  def edit
-  end
-
-  def update    
+  def update
     if @restaurant.update(restaurant_params)
-      redirect_to restaurants_path, notice: "Restaurant was successfully updated."
+      redirect_to restaurants_path, notice: 'Restaurant was successfully updated.'
     else
       render :edit
     end
   end
 
   def destroy
-    @restaurant.destroy if @restaurant
-    redirect_to restaurants_path, notice: "Reataurant was successfully deleted."
+    @restaurant&.destroy
+    redirect_to restaurants_path, notice: 'Reataurant was successfully deleted.'
   end
 
   private
+
   def restaurant_params
     params.require(:restaurant).permit(:name)
   end

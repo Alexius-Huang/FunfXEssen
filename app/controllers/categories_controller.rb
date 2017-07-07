@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CategoriesController < ApplicationController
   before_action :find_category, only: [:edit, :update, :destroy]
   def index
@@ -18,26 +20,23 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def show
-  end
-
-  def edit
-  end
+  def edit; end
 
   def update
     if @category.update(category_params)
-      redirect_to categories_path, notice: "Category was successfully updated."
+      redirect_to categories_path, notice: 'Category was successfully updated.'
     else
       render :edit
     end
   end
 
   def destroy
-    @category.destroy if @category
-    redirect_to categories_path, notice: "Category was successfully deleted."
+    @category&.destroy
+    redirect_to categories_path, notice: 'Category was successfully deleted.'
   end
 
   private
+
   def category_params
     params.require(:category).permit(:name)
   end
