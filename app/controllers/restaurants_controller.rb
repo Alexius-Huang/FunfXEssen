@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RestaurantsController < ApplicationController
-  before_action :find_restautant, only: [:edit, :update, :destroy]
+  before_action :find_restautant, only: %i[edit update destroy]
   def index
     @restaurants = Restaurant.all
   end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :find_user, only: [:edit, :update, :destroy]
+  before_action :find_user, only: %i[edit update destroy]
   def index
     @users = User.all
   end
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, dislikes_attributes: [:user_id, :category_id])
+    params.require(:user).permit(:name, dislikes_attributes: %i[user_id category_id])
   end
 
   def find_user
