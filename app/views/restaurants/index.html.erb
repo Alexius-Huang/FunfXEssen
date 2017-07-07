@@ -1,0 +1,22 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <td>店名</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= restaurant.name %></td>
+        <td>
+          <%= link_to "編輯", edit_restaurant_path(restaurant) %>
+          <%= link_to "刪除", restaurant_path(restaurant), method: "delete", data: { confirm: "確認刪除" } %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to 'Back', root_path, class: 'btn btn-default' %>
+</div>

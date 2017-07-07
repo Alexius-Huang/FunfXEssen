@@ -34,7 +34,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'simple_form'
-gem 'byebug'
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem 'jquery-rails'
+gem 'kaminari'
+gem 'cocoon'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
