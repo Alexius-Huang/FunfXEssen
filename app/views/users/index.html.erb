@@ -1,0 +1,22 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <td>姓名</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td>
+          <%= link_to "編輯", edit_user_path(user) %>
+          <%= link_to "刪除", user_path(user), method: "delete", data: { confirm: "確認刪除" } %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to 'Back', root_path, class: 'btn btn-default' %>
+</div>

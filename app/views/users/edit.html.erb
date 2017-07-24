@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Edit User</h1>
+
+  <%= render 'form', current_object: @user, action: :update, method: :put %>
+
+  <%= link_to 'Back', root_path, class: 'btn btn-default' %>
+</div>

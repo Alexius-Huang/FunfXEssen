@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>New Category</h1>
+
+  <%= render 'form', current_object: @category, action: :create, method: :post %>
+
+  <%= link_to 'Back', root_path, class: 'btn btn-default' %>
+</div>

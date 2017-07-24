@@ -1,0 +1,22 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <td>種類名稱</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td>
+          <%= link_to "編輯", edit_category_path(category) %>
+          <%= link_to "刪除", category_path(category), method: "delete", data: { confirm: "確認刪除" } %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to 'Back', root_path, class: 'btn btn-default' %>
+</div>

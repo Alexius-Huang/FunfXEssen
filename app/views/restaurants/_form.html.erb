@@ -1,0 +1,4 @@
+<%= simple_form_for current_object, url: url_for(action: action), method: method do |f| %>
+  <%= f.input :name, label: '店名' %>
+  <%= f.button :submit, class: 'btn btn-default'%>
+<% end %>
